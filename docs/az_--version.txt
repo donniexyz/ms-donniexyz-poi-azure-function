@@ -1,0 +1,19 @@
+D:\donniexyz888\work\from_gitlab\ms-donniexyz-poi-azure-function>az --version > docs\az_--version.txt
+
+azure-cli                         2.33.1 *
+
+core                              2.33.1 *
+telemetry                          1.0.6
+
+Dependencies:
+msal                              1.16.0
+azure-mgmt-resource               20.0.0
+
+Python location 'C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2\python.exe'
+Extensions directory 'C:\Users\bapi\.azure\cliextensions'
+
+Python (Windows) 3.8.9 (tags/v3.8.9:a743f81, Apr  6 2021, 13:22:56) [MSC v.1928 32 bit (Intel)]
+
+Legal docs and information: aka.ms/AzureCliLegal
+
+

@@ -1,0 +1,224 @@
+{
+	"info": {
+		"_postman_id": "18032f1e-3dd2-4a34-a86e-c8ff26e4381a",
+		"name": "az Poi function",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "HttpExample",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/HttpExample?name=QWE",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"HttpExample"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "QWE"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ShowFilesFunction",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/ShowFilesFunction",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"ShowFilesFunction"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UploadFunction",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "filename",
+							"type": "file",
+							"src": "/D:/donniexyz888/work/word-template/doc-examples/doc-only-01.docx"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{host}}/UploadFunction",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"UploadFunction"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UploadFunction HousingTemplate",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "filename",
+							"type": "file",
+							"src": "/D:/donniexyz888/work/word-template/doc-examples/PrivateHousingLoan_OfferLetter.docx"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{host}}/UploadFunction",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"UploadFunction"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UploadFunction URL.txt",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "filename",
+							"type": "file",
+							"src": "/D:/donniexyz888/work/azure/word-template-function/URL.txt"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{host}}/UploadFunction",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"UploadFunction"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "MailMergePoiFunction",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Nama1\": \"doz\",\r\n    \"Usia1\": 13,\r\n    \"Alamat\": {\r\n        \"line1\": \"33X-6-3 The Garden\",\r\n        \"line2\": \"Apartement Complex\",\r\n        \"city\": \"Kuala Lumpur\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/MailMergePoiFunction?filename=doc-only-02.docx",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"MailMergePoiFunction"
+					],
+					"query": [
+						{
+							"key": "filename",
+							"value": "doc-only-02.docx"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "MailMergePoiFunction HousingLoan",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"RefId\": \"REF_00001\",\r\n    \"PrintDate\": \"Saturday, 3rd May 2022\",\r\n    \"AddressName\": \"Mr Jay\",\r\n    \"AddressLine1\": \"33X-6-3 The Garden\",\r\n    \"AddressLine2\": \"Apartement Complex\",\r\n    \"AddressCity\": \"Kuala Lumpur\",\r\n    \"AddressPostCode\": \"55555\",\r\n    \"Contract\": {\r\n        \"Currency\": \"USD\",\r\n        \"Amount\": 123000,\r\n        \"Applicant\": {\r\n            \"Name\": \"Mrs Jay\"\r\n        },\r\n        \"PropertyPrice\": \"250000\",\r\n        \"Fee1Amount\": \"150\",\r\n        \"DiscountAmount\": \"2500\",\r\n        \"DurationInMonth\": 120,\r\n        \"Installment\": {\r\n            \"StartDate\": \"2022-08-01\",\r\n            \"Amount\": \"1230\",\r\n            \"InstallmentAmount\": \"1230\"\r\n        }\r\n    },\r\n    \"ManagerName\": \"Joy Royce\",\r\n    \"ManagerPosition\": \"Head of Staff\",\r\n    \"Organization\": \"2MDB\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/MailMergePoiFunction?filename=PrivateHousingLoan_OfferLetter.docx",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"MailMergePoiFunction"
+					],
+					"query": [
+						{
+							"key": "filename",
+							"value": "PrivateHousingLoan_OfferLetter.docx"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "host_local",
+			"value": "http://127.0.0.1:7071"
+		},
+		{
+			"key": "host",
+			"value": "{{host_local}}/api"
+		}
+	]
+}

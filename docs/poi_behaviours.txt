@@ -1,0 +1,6 @@
+POI Behaviour
+=============
+
+1. open .docx and save as .docx
+2. open .dotx and save as .dotx
+

@@ -1,0 +1,2 @@
+D:\donniexyz888\work\from_gitlab\ms-donniexyz-poi-azure-function>func --version > docs\func_--version.txt
+4.0.3971

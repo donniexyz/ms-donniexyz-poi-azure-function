@@ -1,0 +1,16 @@
+@startuml
+autoactivate on
+
+title "Azure Function - msWord MailMerge with POI\n"
+
+"Front End" -> "AZ-Poi-Function" : Upload
+"AZ-Poi-Function" -> "Azure Storage" -- : StoreFile*
+"AZ-Poi-Function" --> "Front End" : response status
+
+"Front End" -> "AZ-Poi-Function" : Download
+"AZ-Poi-Function" -> "AZ-Poi-Function": getDocFromLocalStorage
+"AZ-Poi-Function" -> "Azure Storage" -- : ReadFile*
+"AZ-Poi-Function" -> "AZ-Poi-Function" ++--: mergeDocData
+"AZ-Poi-Function" --> "Front End" : file response
+
+@enduml
