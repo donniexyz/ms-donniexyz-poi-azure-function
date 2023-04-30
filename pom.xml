@@ -6,7 +6,7 @@
 
     <groupId>com.github.donniexyz</groupId>
     <artifactId>ms-donniexyz-poi-azure-function</artifactId>
-    <version>0.0.1.PUBLIC</version>
+    <version>0.0.2</version>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
