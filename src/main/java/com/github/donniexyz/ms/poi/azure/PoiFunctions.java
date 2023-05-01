@@ -6,6 +6,10 @@ import com.microsoft.azure.functions.*;
 import com.microsoft.azure.functions.annotation.AuthorizationLevel;
 import com.microsoft.azure.functions.annotation.FunctionName;
 import com.microsoft.azure.functions.annotation.HttpTrigger;
+import fr.opensagres.poi.xwpf.converter.core.XWPFConverterException;
+import fr.opensagres.poi.xwpf.converter.pdf.PdfConverter;
+import fr.opensagres.poi.xwpf.converter.pdf.PdfOptions;
+import org.apache.commons.io.FilenameUtils;
 import org.apache.poi.xwpf.usermodel.XWPFDocument;
 
 import java.io.ByteArrayOutputStream;
@@ -54,7 +58,10 @@ public class PoiFunctions {
 
         // Parse query parameter
         final String filename = request.getQueryParameters().get("filename");
+        final String toFormat = request.getQueryParameters().get("toFormat");
         final String bodyJson = request.getBody().orElseThrow(() -> new RuntimeException("RequestBody is null"));
+
+        String resultFileName = filename;
 
         Path templatePath = Paths.get(BASEPATH + filename);
         File templateFile = templatePath.toFile();
@@ -68,14 +75,26 @@ public class PoiFunctions {
         try (XWPFDocument mailMergedXwpfDocument = PoiMailMerge.perform(templatePath, bodyMap);
              ByteArrayOutputStream out = new ByteArrayOutputStream()) {
 
-            mailMergedXwpfDocument.write(out);
+            if (null == toFormat || "".equals(toFormat)) {
+                mailMergedXwpfDocument.write(out);
+            } else if ("pdf".equalsIgnoreCase(toFormat)){
+                try {
+                    PdfOptions pdfOptions = PdfOptions.create();
+                    PdfConverter.getInstance().convert(mailMergedXwpfDocument, out, pdfOptions);
+                    resultFileName = FilenameUtils.removeExtension(filename) + ".pdf";
+                } catch (IOException e) {
+                    // io
+                } catch (XWPFConverterException e) {
+                    // x
+                }
+            }
             byte[] bytes = out.toByteArray();
 
             if (bytes.length <= 0) {
                 return request.createResponseBuilder(HttpStatus.BAD_REQUEST).body("{\"errorMessage\": \"Invalid\"}").build();
             } else {
                 return request.createResponseBuilder(HttpStatus.OK)
-                        .header("Content-Disposition", "inline; filename=\"" + filename + "\"")
+                        .header("Content-Disposition", "inline; filename=\"" + resultFileName + "\"")
                         .body(bytes).build();
             }
         }

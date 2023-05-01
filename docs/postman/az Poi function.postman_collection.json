@@ -189,6 +189,42 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "MailMergePoiFunction HousingLoan PDF",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"RefId\": \"REF_00001\",\r\n    \"PrintDate\": \"Saturday, 3rd May 2022\",\r\n    \"AddressName\": \"Mr Jay\",\r\n    \"AddressLine1\": \"33X-6-3 The Garden\",\r\n    \"AddressLine2\": \"Apartement Complex\",\r\n    \"AddressCity\": \"Kuala Lumpur\",\r\n    \"AddressPostCode\": \"55555\",\r\n    \"Contract\": {\r\n        \"Currency\": \"USD\",\r\n        \"Amount\": 123000,\r\n        \"Applicant\": {\r\n            \"Name\": \"Mrs Jay\"\r\n        },\r\n        \"PropertyPrice\": \"250000\",\r\n        \"Fee1Amount\": \"150\",\r\n        \"DiscountAmount\": \"2500\",\r\n        \"DurationInMonth\": 120,\r\n        \"Installment\": {\r\n            \"StartDate\": \"2022-08-01\",\r\n            \"Amount\": \"1230\",\r\n            \"InstallmentAmount\": \"1230\"\r\n        }\r\n    },\r\n    \"ManagerName\": \"Joy Royce\",\r\n    \"ManagerPosition\": \"Head of Staff\",\r\n    \"Organization\": \"2MDB\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/MailMergePoiFunction?filename=PrivateHousingLoan_OfferLetter.docx&toFormat=pdf",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"MailMergePoiFunction"
+					],
+					"query": [
+						{
+							"key": "filename",
+							"value": "PrivateHousingLoan_OfferLetter.docx"
+						},
+						{
+							"key": "toFormat",
+							"value": "pdf"
+						}
+					]
+				}
+			},
+			"response": []
 		}
 	],
 	"event": [

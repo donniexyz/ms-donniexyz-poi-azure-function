@@ -1,6 +1,12 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [0.0.3] - 2023-05-01
+### lib upgrade
+- com.fasterxml.jackson version 2.14.0-rc1 --> 2.14.2
+### Added
+- Generate PDF: query param "toFormat=pdf" @FunctionName("MailMergePoiFunction")
+
 ## [0.0.2] - 2023-04-30
 ### lib upgrade
 - commons-fileupload version 1.4 --> 1.5
